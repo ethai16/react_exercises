@@ -1,0 +1,15 @@
+.MemoryCard{
+    display: inline-block;
+    width:150px;
+    Height:80px;
+    margin:3px;
+    border-radius:5px;
+    border:solid 3px navy;
+    cursor:pointer;
+    background-color: lightblue
+}
+
+.MemoryCard img{
+    width: 60px;
+    padding-top:27px
+}
