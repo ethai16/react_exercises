@@ -10,11 +10,11 @@
 
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.js"></script>
     <script>
-        function addPerson(id,name,age){
-            return {
+        function addPerson(id, name, age){
+            return{
                 type: "ADD",
-                person:{
-                    id: id,
+                person: {
+                    id:id,
                     name: name,
                     age: age
                 }
@@ -27,27 +27,23 @@
                 id: id
             }
         }
-
         var initialState = {
             persons:[]
         }
 
         function reducer(state, action){
-            if(state === undefined){
+            if (state === undefined){
                 state = initialState
             }
-            if(action.type === "ADD"){
+            if (action.type === "ADD"){
                 let newPerson = {
                     id: action.person.id,
                     name: action.person.name,
                     age: action.person.age
                 }
-                return {
-                    ...state,
-                    persons: state.persons.concat(newPerson)
-                }
+                return {...state, persons: state.persons.concat(newPerson)}
             }else if(action.type === "REMOVE"){
-                return{
+                return {
                     ...state,
                     persons: state.persons.filter(person => person.id != action.id)
                 }
@@ -55,13 +51,13 @@
                 return state
             }
         }
-        var store = Redux.createStore(reducer)
+        var store = Redux.createStore(reducer);
         function showStore(){
             console.log(store.getState())
         }
         store.subscribe(showStore)
+        store.dispatch(addPerson(1,"Erick", 24))
 
-        store.dispatch(addPerson(1,'Erick',24))
     </script>
 </body>
 </html>
